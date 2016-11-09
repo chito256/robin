@@ -25,8 +25,13 @@ const SignInForm = React.createClass({
   },
   onPasswordChangeHandle(e) {
     const passwordInput = e.target.value;
-    if (!e.target.value) {
-
+    const passwordInputDOM = this.refs.passwordInput;
+    if (!passwordInput) {
+      passwordInputDOM.style.borderBottom = '1px solid lightcoral';
+      this.setState({ valid: false });
+    } else {
+      passwordInputDOM.style.borderBottom = '1px solid #2095f3';
+      this.setState({ valid: true });
     }
   },
   render() {

@@ -51,9 +51,16 @@
 
 	// Components --------------
 	var SignInForm = __webpack_require__(172);
+	var SignUpForm = __webpack_require__(173);
 	// Components --------------
 
-	ReactDOM.render(React.createElement(SignInForm, null), document.getElementById('signin-form-section'));
+	if (document.getElementById('signin-form-section')) {
+	  ReactDOM.render(React.createElement(SignInForm, null), document.getElementById('signin-form-section'));
+	}
+
+	if (document.getElementById('signup-form-section')) {
+	  ReactDOM.render(React.createElement(SignUpForm, null), document.getElementById('signup-form-section'));
+	}
 
 /***/ },
 /* 1 */
@@ -21454,7 +21461,14 @@
 	  },
 	  onPasswordChangeHandle: function onPasswordChangeHandle(e) {
 	    var passwordInput = e.target.value;
-	    if (!e.target.value) {}
+	    var passwordInputDOM = this.refs.passwordInput;
+	    if (!passwordInput) {
+	      passwordInputDOM.style.borderBottom = '1px solid lightcoral';
+	      this.setState({ valid: false });
+	    } else {
+	      passwordInputDOM.style.borderBottom = '1px solid #2095f3';
+	      this.setState({ valid: true });
+	    }
 	  },
 	  render: function render() {
 	    return React.createElement(
@@ -21480,6 +21494,173 @@
 	});
 
 	module.exports = SignInForm;
+
+/***/ },
+/* 173 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+	var ReactDOM = __webpack_require__(34);
+
+	var SignUpForm = React.createClass({
+	  displayName: 'SignUpForm',
+	  getInitialState: function getInitialState() {
+	    return {
+	      valid: false
+	    };
+	  },
+	  render: function render() {
+	    return React.createElement(
+	      'form',
+	      null,
+	      React.createElement(
+	        'div',
+	        { className: 'signup-name' },
+	        React.createElement('input', { type: 'text',
+	          name: 'firstName',
+	          placeholder: 'First Name' }),
+	        React.createElement('input', { type: 'text',
+	          name: 'lastName',
+	          placeholder: 'Last Name' })
+	      ),
+	      React.createElement(
+	        'div',
+	        { className: 'signup-username' },
+	        React.createElement('input', { type: 'text',
+	          name: 'signupUsername',
+	          placeholder: 'Username' })
+	      ),
+	      React.createElement(
+	        'div',
+	        { className: 'signup-password' },
+	        React.createElement('input', { type: 'password',
+	          name: 'signupPassword',
+	          placeholder: 'Password' }),
+	        React.createElement('input', { type: 'password',
+	          name: 'signupPasswordConfirm',
+	          placeholder: 'Confirm Password' })
+	      ),
+	      React.createElement(
+	        'div',
+	        { className: 'signup-gender' },
+	        React.createElement(
+	          'select',
+	          { name: 'gender-select' },
+	          React.createElement(
+	            'option',
+	            { value: 'default', defaultValue: true },
+	            'Gender'
+	          ),
+	          React.createElement(
+	            'option',
+	            { value: 'male' },
+	            'Male'
+	          ),
+	          React.createElement(
+	            'option',
+	            { value: 'female' },
+	            'Female'
+	          ),
+	          React.createElement(
+	            'option',
+	            { value: 'other' },
+	            'Other'
+	          )
+	        )
+	      ),
+	      React.createElement(
+	        'div',
+	        { className: 'signup-dob' },
+	        React.createElement(
+	          'select',
+	          { name: 'dob-month' },
+	          React.createElement(
+	            'option',
+	            { value: 'default', defaultValue: true },
+	            'Birth Month'
+	          ),
+	          React.createElement(
+	            'option',
+	            { value: '1' },
+	            'January'
+	          ),
+	          React.createElement(
+	            'option',
+	            { value: '2' },
+	            'February'
+	          ),
+	          React.createElement(
+	            'option',
+	            { value: '3' },
+	            'March'
+	          ),
+	          React.createElement(
+	            'option',
+	            { value: '4' },
+	            'April'
+	          ),
+	          React.createElement(
+	            'option',
+	            { value: '5' },
+	            'May'
+	          ),
+	          React.createElement(
+	            'option',
+	            { value: '6' },
+	            'June'
+	          ),
+	          React.createElement(
+	            'option',
+	            { value: '7' },
+	            'July'
+	          ),
+	          React.createElement(
+	            'option',
+	            { value: '8' },
+	            'August'
+	          ),
+	          React.createElement(
+	            'option',
+	            { value: '9' },
+	            'September'
+	          ),
+	          React.createElement(
+	            'option',
+	            { value: '10' },
+	            'October'
+	          ),
+	          React.createElement(
+	            'option',
+	            { value: '11' },
+	            'November'
+	          ),
+	          React.createElement(
+	            'option',
+	            { value: '12' },
+	            'December'
+	          )
+	        ),
+	        React.createElement('input', { type: 'number',
+	          name: 'dobDay',
+	          placeholder: 'Birth Day',
+	          min: 1,
+	          max: 31 }),
+	        React.createElement('input', { type: 'number',
+	          name: 'dobYear',
+	          placeholder: 'Birth Year',
+	          min: 1850,
+	          max: 2016 })
+	      ),
+	      React.createElement('input', { type: 'submit',
+	        name: 'signupSubmit',
+	        value: 'SIGN UP FOR FREE' })
+	    );
+	  }
+	});
+
+	module.exports = SignUpForm;
 
 /***/ }
 /******/ ]);
