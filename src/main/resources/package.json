@@ -1,0 +1,25 @@
+{
+  "name": "robin-frontend",
+  "version": "1.0.0",
+  "description": "The front-end code for Robin",
+  "main": "index.js",
+  "scripts": {
+    "build": "node ./node_modules/gulp/bin/gulp.js"
+  },
+  "author": "Chi To",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.18.2",
+    "babel-loader": "^6.2.7",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.3.2",
+    "gulp-webpack": "^1.5.0",
+    "webpack": "^1.13.3"
+  }
+}
