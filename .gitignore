@@ -1,2 +1,6 @@
 # Dependencies
 src/main/resources/node_modules/
+
+# Logs
+npm-debug.log
+src/main/resources/npm-debug.log
