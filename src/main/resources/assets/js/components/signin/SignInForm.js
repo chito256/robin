@@ -4,35 +4,38 @@ const ReactDOM = require('react-dom');
 const SignInForm = React.createClass({
   getInitialState() {
     return {
-      valid: false
+      username: '',
+      password: '',
+      validUsername: false,
+      validPassword: false
     }
   },
-  componentWillUpdate() {
-
+  componentDidUpdate() {
+    this.applyStyles();
+  },
+  applyStyles() {
+    const usernameInputDOM = this.refs.usernameInput;
+    const passwordInputDOM = this.refs.passwordInput;
+    const submitBtnDOM = this.refs.signinSubmit;
+    usernameInputDOM.style.borderBottom = this.state.validUsername ? '1px solid #2095f3' : '1px solid lightcoral';
+    passwordInputDOM.style.borderBottom = this.state.validPassword ? '1px solid #2095f3' : '1px solid lightcoral';
+    submitBtnDOM.style.background = (this.state.validUsername && this.state.validPassword) ? '#2095f3' : '#aaaaaa';
   },
   onUsernameChangeHandle(e) {
-    const usernameInput = e.target.value.trim();
+    const usernameInput = e.target.value;
     const validUsername = /^\w+$/.test(usernameInput);
-    const usernameInputDOM = this.refs.usernameInput;
-    const submitDOM = this.refs.signinSubmit;
-    if (!validUsername) {
-      this.setState({ valid: false });
-    } else {
-      this.setState({ valid: true });
-    }
-    usernameInputDOM.style.borderBottom = !validUsername ? '1px solid lightcoral' : '1px solid #2095f3';
-    submitDOM.style.backgroundColor = !validUsername ? '#aaaaaa' : '#2095f3';
+    this.setState({
+      username: usernameInput,
+      validUsername: validUsername
+    });
   },
   onPasswordChangeHandle(e) {
     const passwordInput = e.target.value;
-    const passwordInputDOM = this.refs.passwordInput;
-    if (!passwordInput) {
-      passwordInputDOM.style.borderBottom = '1px solid lightcoral';
-      this.setState({ valid: false });
-    } else {
-      passwordInputDOM.style.borderBottom = '1px solid #2095f3';
-      this.setState({ valid: true });
-    }
+    const passwordLength = passwordInput.length;
+    this.setState({
+      password: passwordInput,
+      validPassword: passwordLength > 0 ? true : false
+    });
   },
   render() {
     return (
@@ -50,7 +53,7 @@ const SignInForm = React.createClass({
         <input  type="submit"
                 name="signinSubmit"
                 value="SIGN IN"
-                disabled={!this.state.valid}
+                disabled={!this.state.validUsername && !this.state.validPassword}
                 ref="signinSubmit" />
       </form>
     )

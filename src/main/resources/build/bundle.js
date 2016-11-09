@@ -21442,33 +21442,38 @@
 	  displayName: 'SignInForm',
 	  getInitialState: function getInitialState() {
 	    return {
-	      valid: false
+	      username: '',
+	      password: '',
+	      validUsername: false,
+	      validPassword: false
 	    };
 	  },
-	  componentWillUpdate: function componentWillUpdate() {},
-	  onUsernameChangeHandle: function onUsernameChangeHandle(e) {
-	    var usernameInput = e.target.value.trim();
-	    var validUsername = /^\w+$/.test(usernameInput);
+	  componentDidUpdate: function componentDidUpdate() {
+	    this.applyStyles();
+	  },
+	  applyStyles: function applyStyles() {
 	    var usernameInputDOM = this.refs.usernameInput;
-	    var submitDOM = this.refs.signinSubmit;
-	    if (!validUsername) {
-	      this.setState({ valid: false });
-	    } else {
-	      this.setState({ valid: true });
-	    }
-	    usernameInputDOM.style.borderBottom = !validUsername ? '1px solid lightcoral' : '1px solid #2095f3';
-	    submitDOM.style.backgroundColor = !validUsername ? '#aaaaaa' : '#2095f3';
+	    var passwordInputDOM = this.refs.passwordInput;
+	    var submitBtnDOM = this.refs.signinSubmit;
+	    usernameInputDOM.style.borderBottom = this.state.validUsername ? '1px solid #2095f3' : '1px solid lightcoral';
+	    passwordInputDOM.style.borderBottom = this.state.validPassword ? '1px solid #2095f3' : '1px solid lightcoral';
+	    submitBtnDOM.style.background = this.state.validUsername && this.state.validPassword ? '#2095f3' : '#aaaaaa';
+	  },
+	  onUsernameChangeHandle: function onUsernameChangeHandle(e) {
+	    var usernameInput = e.target.value;
+	    var validUsername = /^\w+$/.test(usernameInput);
+	    this.setState({
+	      username: usernameInput,
+	      validUsername: validUsername
+	    });
 	  },
 	  onPasswordChangeHandle: function onPasswordChangeHandle(e) {
 	    var passwordInput = e.target.value;
-	    var passwordInputDOM = this.refs.passwordInput;
-	    if (!passwordInput) {
-	      passwordInputDOM.style.borderBottom = '1px solid lightcoral';
-	      this.setState({ valid: false });
-	    } else {
-	      passwordInputDOM.style.borderBottom = '1px solid #2095f3';
-	      this.setState({ valid: true });
-	    }
+	    var passwordLength = passwordInput.length;
+	    this.setState({
+	      password: passwordInput,
+	      validPassword: passwordLength > 0 ? true : false
+	    });
 	  },
 	  render: function render() {
 	    return React.createElement(
@@ -21487,7 +21492,7 @@
 	      React.createElement('input', { type: 'submit',
 	        name: 'signinSubmit',
 	        value: 'SIGN IN',
-	        disabled: !this.state.valid,
+	        disabled: !this.state.validUsername && !this.state.validPassword,
 	        ref: 'signinSubmit' })
 	    );
 	  }
