@@ -1,0 +1,132 @@
+// Stylings for the index page (signin page)
+.signin-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  // Header
+  .header {
+    padding-top: 80px;
+    text-align: center;
+    .logo {
+      width: 128px;
+    }
+    .wordmark {
+      padding-top: 12px;
+      font-family: $montserrat;
+      font-size: 16px;
+      font-weight: 400;
+      color: $dark;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+    }
+  }
+  // End of Header
+
+  // Signin Section
+  .signin-section {
+    max-width: 320px;
+    margin: 60px auto;
+    .signin-form {
+      form {
+        input {
+          padding: 5px 0 5px 2px;
+          border: none;
+          border-bottom: 1px solid rgba(170, 170, 170, 0.5);
+          font-family: $roboto;
+          font-size: 16px;
+          font-weight: 300;
+          color: $dark;
+          outline: none;
+        }
+        input[type="text"],
+        input[type="password"] {
+          width: 100%;
+          margin-bottom: 30px;
+        }
+        input[type="submit"] {
+          position: relative;
+          left: 50%;
+          transform: translateX(-60px);
+          width: 120px;
+          height: 45px;
+          margin-bottom: 60px;
+          border-radius: 2px;
+          background-color: $main;
+          color: $white;
+          cursor: pointer;
+          letter-spacing: 2px;
+          word-spacing: 4px;
+          box-shadow: 0px 0px 10px 0 $gray;
+          transition: all 200ms ease-in-out;
+        }
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+          border-bottom: 1px solid $main;
+        }
+        input[type="submit"]:hover {
+          box-shadow: 0px 0px 40px 0 $gray;
+        }
+      }
+    }
+    .signin-more-options {
+      hr {
+        width: 100%;
+        height: 1px;
+        background-color: rgba(170, 170, 170, 0.5);
+        border: none;
+      }
+      .options {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 4px;
+        a {
+          text-decoration: none;
+          font-family: $roboto;
+          font-size: 14px;
+          color: $main;
+        }
+        a:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+  // End of Signin Section
+
+  // Footer
+  .footer {
+    width: 100%;
+    padding: 20px 30px;
+    background-color: rgba(170, 170, 170, 0.2);
+    > * {
+      font-family: $roboto;
+      font-size: 14px;
+      font-weight: 300;
+    }
+    .copyright {
+      float: left;
+      color: $darkgray;
+    }
+    .footer-nav {
+      float: right;
+      ul {
+        list-style-type: none;
+        li {
+          float: left;
+          a {
+            padding-left: 20px;
+            text-decoration: none;
+            color: $darkgray;
+          }
+          a:hover {
+            color: $gray;
+          }
+        }
+      }
+    }
+  }
+  // End of Footer
+
+}

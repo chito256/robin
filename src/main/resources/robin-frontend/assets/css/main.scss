@@ -1,0 +1,19 @@
+// Browser Reset
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// Font stacks
+$roboto: 'Roboto', 'Segoe UI', 'Helvetica', Arial, sans-serif;
+$montserrat: 'Montserrat', 'Segoe UI', 'Helvetica', Arial, sans-serif;
+
+// Colors
+$main: #2095f3;
+$dark: #38444e;
+$gray: #aaaaaa;
+$darkgray: #858585;
+$white: #ffffff;
+
+@import './index/index.scss';

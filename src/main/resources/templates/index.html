@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html lang="en-us" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="Chi To">
+    <meta name="description" content="Robin - A social network">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Robin</title>
+
+    <!-- Stylesheets -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="../resources/robin-frontend/dist/main.css">
+  </head>
+  <body class="signin-page">
+
+    <!-- Signin Header -->
+    <header class="header">
+      <img class="logo" src="../resources/robin-frontend/assets/images/robin-logo-main.svg" alt="Robin Logo" />
+      <h1 class="wordmark">robin</h1>
+    </header>
+    <!-- End of Signin Header -->
+	<div th:if="${param.error}">
+            Invalid username and password.
+        </div>
+        <div th:if="${param.logout}">
+            You have been logged out.
+        </div>
+    <!-- Signin Section -->
+    <main class="signin-section">
+      <section class="signin-form" id="signin-form-section">
+        <!-- SignInForm - React Component -->
+        <!--
+        <form>
+          <input type="text" name="username" placeholder="Username" />
+          <input type="password" name="password" placeholder="Password" />
+          <input type="submit" name="signinSubmit" value="SIGN IN" />
+        </form>
+        -->
+      </section>
+      <section class="signin-more-options">
+        <hr>
+        <div class="options">
+          <a href="#">Create an account</a>
+          <a href="#">Help?</a>
+        </div>
+      </section>
+    </main>
+    <!-- End of Signin Section -->
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p class="copyright">
+        Copyright © 2016 Robin Network
+      </p>
+      <nav class="footer-nav">
+        <ul>
+          <li>
+            <a href="#">About</a>
+          </li>
+          <li>
+            <a href="#">Jobs</a>
+          </li>
+          <li>
+            <a href="#">Developers</a>
+          </li>
+          <li>
+            <a href="#">Terms &amp; Conditions</a>
+          </li>
+        </ul>
+      </nav>
+    </footer>
+    <!-- End of Footer -->
+
+    <!-- Bundle -->
+    <script src="../resources/robin-frontend/dist/bundle.js"></script>
+  </body>
+</html>
