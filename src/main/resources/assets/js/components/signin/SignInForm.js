@@ -53,7 +53,7 @@ const SignInForm = React.createClass({
         <input  type="submit"
                 name="signinSubmit"
                 value="SIGN IN"
-                disabled={!this.state.validUsername && !this.state.validPassword}
+                disabled={!this.state.validUsername || !this.state.validPassword}
                 ref="signinSubmit" />
       </form>
     )

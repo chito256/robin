@@ -21492,7 +21492,7 @@
 	      React.createElement('input', { type: 'submit',
 	        name: 'signinSubmit',
 	        value: 'SIGN IN',
-	        disabled: !this.state.validUsername && !this.state.validPassword,
+	        disabled: !this.state.validUsername || !this.state.validPassword,
 	        ref: 'signinSubmit' })
 	    );
 	  }
@@ -21513,10 +21513,138 @@
 	  displayName: 'SignUpForm',
 	  getInitialState: function getInitialState() {
 	    return {
-	      valid: false
+	      firstName: '',
+	      lastName: '',
+	      username: '',
+	      password: '',
+	      confirmPassword: '',
+	      gender: '',
+	      bMonth: '',
+	      bDay: '',
+	      bYear: '',
+	      minDay: 1,
+	      maxDay: 31,
+	      validFirstName: false,
+	      validLastName: false,
+	      validUsername: false,
+	      validPassword: false,
+	      validGender: false,
+	      validBMonth: false,
+	      validBDay: false,
+	      validBYear: false
 	    };
 	  },
+	  onInputHandle: function onInputHandle(type, e) {
+	    switch (type) {
+	      case 'FIRST_NAME':
+	        {
+	          var isValid = /[\w\s]+/.test(e.target.value);
+	          this.setState({
+	            firstName: e.target.value,
+	            validFirstName: isValid
+	          });
+	          break;
+	        }
+	      case 'LAST_NAME':
+	        {
+	          var _isValid = /[\w\s]+/.test(e.target.value);
+	          this.setState({
+	            lastName: e.target.value,
+	            validLastName: _isValid
+	          });
+	          break;
+	        }
+	      case 'USERNAME':
+	        {
+	          var _isValid2 = /^\w+$/.test(e.target.value);
+	          this.setState({
+	            username: e.target.value,
+	            validUsername: _isValid2
+	          });
+	          break;
+	        }
+	      case 'PASSWORD':
+	        {
+	          this.setState({ password: e.target.value });
+	          break;
+	        }
+	      case 'CONFIRM_PASSWORD':
+	        {
+	          var _isValid3 = this.state.password.length > 0 && e.target.value === this.state.password;
+	          this.setState({
+	            confirmPassword: e.target.value,
+	            validPassword: _isValid3
+	          });
+	          break;
+	        }
+	      case 'GENDER':
+	        {
+	          var _isValid4 = e.target.value != 'default';
+	          this.setState({
+	            gender: e.target.value,
+	            validGender: _isValid4
+	          });
+	          break;
+	        }
+	      case 'BIRTH_MONTH':
+	        {
+	          var bMonthValue = e.target.value;
+	          var _isValid5 = bMonthValue != 'default';
+	          this.setState({
+	            bMonth: bMonthValue,
+	            validBMonth: _isValid5
+	          });
+	          if (bMonthValue == '1' || bMonthValue == '3' || bMonthValue == '5' || bMonthValue == '7' || bMonthValue == '8' || bMonthValue == '10' || bMonthValue == '12') {
+	            this.setState({ minDay: 1, maxDay: 31 });
+	          } else if (bMonthValue == '2' && (this.state.bYear % 4 != 0 || this.state.bYear % 400 != 0)) {
+	            this.setState({ minDay: 1, maxDay: 28 });
+	          } else if (bMonthValue == '2') {
+	            this.setState({ minDay: 1, maxDay: 29 });
+	          } else {
+	            this.setState({ minDay: 1, maxDay: 30 });
+	          }
+	          break;
+	        }
+	      case 'BIRTH_DAY':
+	        {
+	          var bDayValue = e.target.value;
+	          var _isValid6 = bDayValue != null;
+	          this.setState({
+	            bDay: bDayValue,
+	            validBDay: _isValid6
+	          });
+	          break;
+	        }
+	      case 'BIRTH_YEAR':
+	        {
+	          var bYearValue = e.target.value;
+	          var _isValid7 = bYearValue != null;
+	          this.setState({
+	            bYear: bYearValue,
+	            validBYear: _isValid7
+	          });
+	          if (this.state.bMonth == '2') {
+	            if (bYearValue % 4 != 0 || bYearValue % 400 != 0) {
+	              this.setState({
+	                minDay: 1,
+	                maxDay: 28
+	              });
+	            } else {
+	              this.setState({
+	                minDay: 1,
+	                maxDay: 29
+	              });
+	            }
+	          }
+	          break;
+	        }
+	      default:
+	        break;
+	    }
+	  },
 	  render: function render() {
+	    var _this = this;
+
 	    return React.createElement(
 	      'form',
 	      null,
@@ -21525,34 +21653,52 @@
 	        { className: 'signup-name' },
 	        React.createElement('input', { type: 'text',
 	          name: 'firstName',
-	          placeholder: 'First Name' }),
+	          placeholder: 'First Name',
+	          onChange: function onChange(e) {
+	            _this.onInputHandle('FIRST_NAME', e);
+	          } }),
 	        React.createElement('input', { type: 'text',
 	          name: 'lastName',
-	          placeholder: 'Last Name' })
+	          placeholder: 'Last Name',
+	          onChange: function onChange(e) {
+	            _this.onInputHandle('LAST_NAME', e);
+	          } })
 	      ),
 	      React.createElement(
 	        'div',
 	        { className: 'signup-username' },
 	        React.createElement('input', { type: 'text',
 	          name: 'signupUsername',
-	          placeholder: 'Username' })
+	          placeholder: 'Username',
+	          onChange: function onChange(e) {
+	            _this.onInputHandle('USERNAME', e);
+	          } })
 	      ),
 	      React.createElement(
 	        'div',
 	        { className: 'signup-password' },
 	        React.createElement('input', { type: 'password',
 	          name: 'signupPassword',
-	          placeholder: 'Password' }),
+	          placeholder: 'Password',
+	          onChange: function onChange(e) {
+	            _this.onInputHandle('PASSWORD', e);
+	          } }),
 	        React.createElement('input', { type: 'password',
 	          name: 'signupPasswordConfirm',
-	          placeholder: 'Confirm Password' })
+	          placeholder: 'Confirm Password',
+	          onChange: function onChange(e) {
+	            _this.onInputHandle('PASSWORD_CONFIRM', e);
+	          } })
 	      ),
 	      React.createElement(
 	        'div',
 	        { className: 'signup-gender' },
 	        React.createElement(
 	          'select',
-	          { name: 'gender-select' },
+	          { name: 'gender-select',
+	            onChange: function onChange(e) {
+	              _this.onInputHandle('GENDER', e);
+	            } },
 	          React.createElement(
 	            'option',
 	            { value: 'default', defaultValue: true },
@@ -21580,7 +21726,10 @@
 	        { className: 'signup-dob' },
 	        React.createElement(
 	          'select',
-	          { name: 'dob-month' },
+	          { name: 'dob-month',
+	            onChange: function onChange(e) {
+	              _this.onInputHandle('BIRTH_MONTH', e);
+	            } },
 	          React.createElement(
 	            'option',
 	            { value: 'default', defaultValue: true },
@@ -21650,17 +21799,24 @@
 	        React.createElement('input', { type: 'number',
 	          name: 'dobDay',
 	          placeholder: 'Birth Day',
-	          min: 1,
-	          max: 31 }),
+	          min: this.state.minDay,
+	          max: this.state.maxDay,
+	          onChange: function onChange(e) {
+	            _this.onInputHandle('BIRTH_DAY', e);
+	          } }),
 	        React.createElement('input', { type: 'number',
 	          name: 'dobYear',
 	          placeholder: 'Birth Year',
 	          min: 1850,
-	          max: 2016 })
+	          max: 2016,
+	          onChange: function onChange(e) {
+	            _this.onInputHandle('BIRTH_YEAR', e);
+	          } })
 	      ),
 	      React.createElement('input', { type: 'submit',
 	        name: 'signupSubmit',
-	        value: 'SIGN UP FOR FREE' })
+	        value: 'SIGN UP FOR FREE',
+	        disabled: !this.state.validFirstName || !this.state.validLastName || !this.state.validUsername || !this.state.validPassword || !this.state.validGender || !this.state.validBMonth || !this.state.validBDay || !this.state.validBYear })
 	    );
 	  }
 	});
