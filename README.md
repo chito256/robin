@@ -2,9 +2,9 @@
 
 A minimal and simple social network that works
 
-## Building Instructions
+## Build Instructions
 
-The authors use ReactJS to build the front-end of this social network. In order to bundle React code and components to pure JavaScript files, we need a bundler (Webpack in this case) and BabelJS. The authors also use Gradle to build the server-side Java code.
+The authors use ReactJS to create the front-end of this social network. In order to bundle React code and components to pure JavaScript files, we need a bundler (In this case, Webpack) and BabelJS. The authors also use Gradle to build the server-side Java code.
 
 ### Front-End
 
