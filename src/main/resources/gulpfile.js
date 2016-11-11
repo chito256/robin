@@ -3,20 +3,20 @@ var sass = require('gulp-sass');
 var webpack = require('gulp-webpack');
 
 gulp.task('sass', function () {
-  return gulp.src('./assets/css/main.scss')
+  return gulp.src('./static/assets/css/main.scss')
         .pipe(sass().on('error', sass.logError))
-        .pipe(gulp.dest('./build/'));
+        .pipe(gulp.dest('./static/build/'));
 });
 
 gulp.task('bundle', function () {
-  return gulp.src('./assets/js/index.js')
+  return gulp.src('./static/assets/js/index.js')
         .pipe(webpack(require('./webpack.config.js')))
-        .pipe(gulp.dest('./build/'));
+        .pipe(gulp.dest('./static/build/'));
 });
 
 gulp.task('watch', function () {
-  gulp.watch('./assets/css/**/*.scss', ['sass']);
-  gulp.watch('./assets/js/**/**/*.js', ['bundle']);
+  gulp.watch('./static/assets/css/**/*.scss', ['sass']);
+  gulp.watch('./static/assets/js/**/**/*.js', ['bundle']);
 });
 
 gulp.task('default', ['bundle', 'sass', 'watch']);
