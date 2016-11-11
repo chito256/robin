@@ -27,6 +27,7 @@ The authors use ReactJS to build the front-end of this social network. In order 
 1. Using the Terminal, navigate to the root directory of this project (repository).
 2. Type `gradle build` to install dependencies and build Java files.
 3. Type `java -jar ./build/libs/robin-0.1.0.jar` to run the Java application.
+4. A small Tomcat server will be running at `http://localhost:8080`.
 
 ## Notes & Credits
 
