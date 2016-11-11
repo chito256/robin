@@ -6,7 +6,7 @@ A minimal and simple social network that works
 
 The authors use ReactJS to build the front-end of this social network. In order to bundle React code and components to pure JavaScript files, we need a bundler (Webpack in this case) and BabelJS. The authors also use Gradle to build the server-side Java code.
 
-###### Front-End
+### Front-End
 
 **Prerequisites**
 
@@ -17,7 +17,7 @@ The authors use ReactJS to build the front-end of this social network. In order 
 2. Type `npm install` to install dependencies and packages.
 3. Type `npm run build` to run Gulp. This will build/bundle JavaScript and CSS files from ReactJS components and SCSS files.
 
-###### Back-End
+### Back-End
 
 **Prerequisites**
 
