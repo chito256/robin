@@ -9,6 +9,7 @@
   "author": "Chi To",
   "license": "MIT",
   "dependencies": {
+    "draft-js": "^0.9.1",
     "react": "^15.3.2",
     "react-dom": "^15.3.2"
   },
