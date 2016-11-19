@@ -7,8 +7,18 @@ const StyleButton = React.createClass({
     this.props.onToggle(this.props.style);
   },
   render() {
+    let className = '';
+    if (this.props.active) {
+      className += ' active-style-button';
+    }
+    if (this.props.label == 'B') {
+      className += ' writer-bold-style';
+    }
+    if (this.props.label == 'I') {
+      className += ' writer-italic-style';
+    }
     return (
-      <li onMouseDown={this.onToggle}>
+      <li className={className} onMouseDown={this.onToggle}>
         {this.props.label}
       </li>
     )

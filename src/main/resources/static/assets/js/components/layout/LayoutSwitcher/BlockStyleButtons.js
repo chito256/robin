@@ -9,11 +9,16 @@ const BlockTypes = [
   {label: 'H3', type: 'header-three'},
   {label: 'H4', type: 'header-four'},
   {label: 'H5', type: 'header-five'},
-  {label: 'H6', type: 'header-six'}
+  {label: 'H6', type: 'header-six'},
+  {label: 'UL', type: 'unordered-list-item'},
+  {label: 'OL', type: 'ordered-list-item'}
 ]
 
 const BlockStyleButtons = React.createClass({
   render() {
+    const editorState = this.props.editorState;
+    const selection = editorState.getSelection();
+    const blockType = editorState.getCurrentContent().getBlockForKey(selection.getStartKey()).getType();
     return (
       <ul>
         {
@@ -22,6 +27,7 @@ const BlockStyleButtons = React.createClass({
                       key={type.label}
                       label={type.label}
                       onToggle={this.props.toggleBlockStyle}
+                      active={blockType == type.type}
                       style={type.type} />
           })
         }

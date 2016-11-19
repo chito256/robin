@@ -30,7 +30,7 @@
     top: 48px;
     left: 46px;
     bottom: 0;
-    width: 40%;
+    width: 45%;
     padding: 40px 50px;
     background-color: #ececec;
 
@@ -49,7 +49,7 @@
         width: 100%;
         max-height: 497px;
         min-height: 320px;
-        padding: 14px 32px;
+        padding: 18px 32px;
         font-family: $roboto;
         font-size: 16px;
         line-height: 28px;
@@ -61,6 +61,8 @@
         padding: 12px 32px;
         background-color: #efefef;
         ul {
+          display: inline-block;
+          margin-right: 16px;
           list-style-type: none;
           li {
             float: left;
@@ -68,15 +70,18 @@
             font-family: $roboto;
             font-size: 16px;
             font-weight: 300;
-            color: #acacac;
+            color: $gray;
             cursor: pointer;
+            &.active-style-button {
+              color: $main;
+            }
+            &.writer-bold-style {
+              font-weight: 700;
+            }
+            &.writer-italic-style {
+              font-style: italic;
+            }
           }
-        }
-        .writer-style-button {
-          color: #acacac;
-        }
-        .writer-style-button-active {
-          color: pink;
         }
       }
     }

@@ -3,6 +3,7 @@ const ReactDOM = require('react-dom');
 const {Editor, EditorState, RichUtils} = require('draft-js');
 
 const BlockStyleButtons = require('./BlockStyleButtons');
+const InlineStyleButtons = require('./InlineStyleButtons');
 
 const Writer = React.createClass({
   getInitialState() {
@@ -17,18 +18,21 @@ const Writer = React.createClass({
   onBlockStyleToggle(type) {
     const editorState = this.state.editorState;
     this.onChange(
-      RichUtils.toggleBlockType(
-        editorState,
-        type
-      )
+      RichUtils.toggleBlockType(editorState, type)
     );
-    // console.log(type);
+  },
+  onInlineStyleToggle(type) {
+    const editorState = this.state.editorState;
+    this.onChange(
+      RichUtils.toggleInlineStyle(editorState, type)
+    );
   },
   render() {
     return (
       <div className="writer">
         <div className="writer-rich-controls">
-          <BlockStyleButtons toggleBlockStyle={this.onBlockStyleToggle} />
+          <BlockStyleButtons toggleBlockStyle={this.onBlockStyleToggle} editorState={this.state.editorState} />
+          <InlineStyleButtons toggleInlineStyle={this.onInlineStyleToggle} editorState={this.state.editorState} />
         </div>
         <Editor
           editorState={this.state.editorState}
