@@ -16,7 +16,7 @@ gulp.task('bundle', function () {
 
 gulp.task('watch', function () {
   gulp.watch('./static/assets/css/**/*.scss', ['sass']);
-  gulp.watch('./static/assets/js/**/**/*.js', ['bundle']);
+  gulp.watch('./static/assets/js/**/**/**/**/*.js', ['bundle']);
 });
 
 gulp.task('default', ['bundle', 'sass', 'watch']);
