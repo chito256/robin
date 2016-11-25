@@ -1,6 +1,8 @@
 package database;
 
 
+@Entity
+@Table(name="users")
 public class Users{
 
 	private String userName;
