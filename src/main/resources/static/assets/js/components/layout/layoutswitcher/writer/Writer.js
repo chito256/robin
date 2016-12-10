@@ -29,7 +29,7 @@ const Writer = React.createClass({
   },
   render() {
     return (
-      <div className="writer">
+      <div className="writer writer-active">
         <div className="writer-rich-controls">
           <BlockStyleButtons toggleBlockStyle={this.onBlockStyleToggle} editorState={this.state.editorState} />
           <InlineStyleButtons toggleInlineStyle={this.onInlineStyleToggle} editorState={this.state.editorState} />
