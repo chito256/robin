@@ -3,7 +3,7 @@ const ReactDOM = require('react-dom');
 
 const TopBar = require('./TopBar/TopBar');
 const ToolBar = require('./ToolBar');
-const LayoutSwitcher = require('./LayoutSwitcher/LayoutSwitcher');
+const LayoutSwitcher = require('./layoutswitcher/LayoutSwitcher');
 
 const Feed = React.createClass({
   render() {
