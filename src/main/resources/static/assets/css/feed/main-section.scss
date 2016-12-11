@@ -30,7 +30,7 @@
     top: 48px;
     left: 46px;
     bottom: 0;
-    width: 40%;
+    width: 35%;
     // padding: 40px 50px;
 
     // Writer
@@ -99,7 +99,8 @@
       left: 0;
       width: 100%;
       height: calc(100vh - 48px);
-      overflow-y: scroll;
+      background-color: #ececec;
+      overflow-y: auto;
       &.friendlist-active {
         display: block;
         z-index: 50;
@@ -111,12 +112,6 @@
       ul {
         padding: 50px 60px;
         list-style-type: none;
-        li {
-          margin-bottom: 60px;
-          &:last-child {
-            margin-bottom: 0;
-          }
-        }
       }
     }
 

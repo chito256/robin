@@ -1,0 +1,28 @@
+.friend {
+  display: block !important;
+  margin-bottom: 60px;
+  .user-avatar {
+    display: inline;
+    width: 64px;
+    margin-right: 10px;
+    border-radius: 50%;
+  }
+  .user-info {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    display: inline-block;
+    width: calc(100% - 80px);
+    font-family: $roboto;
+    .user-name {
+      display: block;
+      color: $dark;
+    }
+    .user-role {
+      color: $gray;
+    }
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
