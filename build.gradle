@@ -18,7 +18,7 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 jar {
-  baseName = 'spring-rest'
+  baseName = 'robin'
   version =  '0.0.1'
 }
 
