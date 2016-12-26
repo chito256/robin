@@ -4,8 +4,6 @@ A minimal and simple social network that works
 
 ## Build Instructions
 
-The authors use ReactJS to create the front-end of this social network. In order to bundle React code and components to pure JavaScript files, we need a bundler (In this case, Webpack) and BabelJS. The authors also use Gradle to build the server-side Java code.
-
 ### Front-End
 
 **Prerequisites**
@@ -15,7 +13,7 @@ The authors use ReactJS to create the front-end of this social network. In order
 
 1. Using the Terminal, navigate to `src/main/resources/`.
 2. Type `npm install` to install dependencies and packages.
-3. Type `npm run build` to run Gulp. This will build/bundle JavaScript and CSS files from ReactJS components and SCSS files.
+3. Type `npm run build` to run Gulp. This will bundle SCSS files.
 
 ### Back-End
 
@@ -34,13 +32,9 @@ The authors use ReactJS to create the front-end of this social network. In order
 This project is still under development and is made possible by the following frameworks and libraries:
 
 - [NodeJS & NPM](https://nodejs.org/en/)
-- [ReactJS](https://facebook.github.io/react/)
-- [Webpack](https://webpack.github.io)
 - [GulpJS](http://gulpjs.com)
 - [Gradle](https://gradle.org)
 - [Spring MVC](https://spring.io)
-
-... And many other modules from the NodeJS community (check out `src/main/resources/package.json`).
 
 ## Copyright
 
