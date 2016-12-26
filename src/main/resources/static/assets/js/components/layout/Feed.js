@@ -4,6 +4,7 @@ const ReactDOM = require('react-dom');
 const TopBar = require('./TopBar/TopBar');
 const ToolBar = require('./ToolBar');
 const LayoutSwitcher = require('./layoutswitcher/LayoutSwitcher');
+const Posts = require('./Posts');
 
 const Feed = React.createClass({
   render() {
@@ -13,6 +14,7 @@ const Feed = React.createClass({
         <div className="main-section">
           <ToolBar />
           <LayoutSwitcher />
+          <Posts />
         </div>
       </div>
     )

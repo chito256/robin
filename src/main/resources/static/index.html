@@ -24,7 +24,17 @@
     <!-- Signin Section -->
     <main class="signin-section">
       <section class="signin-form" id="signin-form-section">
-        <!-- SignInForm - React Component -->
+        <form action="" method="POST">
+          <input  type="text"
+                  name="username"
+                  placeholder="Username" />
+          <input  type="password"
+                  name="password"
+                  placeholder="Password" />
+          <input  type="submit"
+                  name="signinSubmit"
+                  value="SIGN IN" />
+        </form>
       </section>
       <section class="signin-more-options">
         <hr>
@@ -60,8 +70,5 @@
       </nav>
     </footer>
     <!-- End of Footer -->
-
-    <!-- Bundle -->
-    <script src="./build/bundle.js"></script>
   </body>
 </html>

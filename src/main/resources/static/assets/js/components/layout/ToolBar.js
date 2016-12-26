@@ -24,7 +24,6 @@ const ToolBar = React.createClass({
         <ul>
           <li onClick={this.switchToWriter}>&#xf044;</li>
           <li onClick={this.switchToFriendList}>&#xf2b9;</li>
-          <li>&#xf086;</li>
         </ul>
       </div>
     )

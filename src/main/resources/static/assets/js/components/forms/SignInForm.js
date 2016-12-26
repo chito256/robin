@@ -39,7 +39,7 @@ const SignInForm = React.createClass({
   },
   render() {
     return (
-      <form>
+      <form action="/greeting" method="POST">
         <input  type="text"
                 name="username"
                 placeholder="Username"

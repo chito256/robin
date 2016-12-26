@@ -1,11 +1,15 @@
 .feed-page .feed-wrapper .main-section {
+  max-width: 1600px;
   width: 100%;
+  position: relative;
+  top: 48px;
   .tool-bar {
     position: fixed;
     top: 48px;
     left: 0;
     bottom: 0;
-    max-width: 46px;
+    width: 46px;
+    height: 100%;
     padding: 24px 0;
     background-color: $dark;
     ul {
@@ -115,5 +119,11 @@
       }
     }
 
+  }
+
+  .feed-posts {
+    position: relative;
+    top: 48px;
+    left: 45%;
   }
 }
